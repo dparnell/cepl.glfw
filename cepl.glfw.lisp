@@ -35,8 +35,9 @@
   ;;
   (defun glfw-step-v1 (surface)
     (declare (ignore surface))
-    ;; (break)
-    (glfw:poll-events)))
+     (loop :for listener :in listeners :do
+            (funcall listener nil))
+     (glfw:poll-events)))
 
 ;;----------------------------------------------------------------------
 
